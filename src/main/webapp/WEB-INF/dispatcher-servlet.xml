@@ -10,9 +10,21 @@
     <bean id="/index" class="com.javaex.controller.IndexController" />  
     <bean id="/notice/list" class="com.javaex.controller.notice.ListController" />  
     <bean id="/notice/detail" class="com.javaex.controller.notice.DetailController" />  
+    
+    <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+    	<property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+    	<property name="order" value="1" /> <!-- 리졸버중에 가장 우선순위를 정함 -->
+    </bean>
+    
+    <bean class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+    	<property name="definitions" value="/WEB-INF/tiles.xml" />
+    </bean>
+    
+    
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/"></property>
 		<property name="suffix" value=".jsp"></property>
+		<property name="order" value="2"/> 
 	</bean>
 	
 	<mvc:resources location="/static/" mapping="/**"></mvc:resources>
