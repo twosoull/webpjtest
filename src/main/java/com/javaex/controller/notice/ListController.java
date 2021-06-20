@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.Controller;
 
-import com.javaex.entity.Notice;
 import com.javaex.service.NoticeService;
+
 
 public class ListController implements Controller{
 
