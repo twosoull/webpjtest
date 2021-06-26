@@ -1,6 +1,5 @@
 package com.javaex.service.jdbc;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,20 +10,26 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.javaex.entity.Notice;
 import com.javaex.service.NoticeService;
 
+
+@Service
 public class JdbcNoticeService implements NoticeService{
 //	private String url = "jdbc:oracle:thin:@localhost:1521/xe";
 //	private String uid = "NEWLEC";
 //	private String pwd = "11111";
 //	private String driver = "oracle.jdbc.driver.OracleDriver";
 	
+	@Autowired
 	private DataSource dataSource;
 	
-	public void setDataSource(DataSource dataSource) {
-		this.dataSource = dataSource;
-	}
+//	public void setDataSource(DataSource dataSource) {
+//		this.dataSource = dataSource;
+//	}
 
 	public List<Notice> getList(int page, String field, String query) throws ClassNotFoundException, SQLException{
 		
