@@ -10,20 +10,17 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 	
-	<context:annotation-config/>
+	<!-- <context:annotation-config/> -->
+	<context:component-scan base-package="com.javaex.controller" />
 	
 	
-	
-	<bean id="/index" class="com.javaex.controller.IndexController" />
+<!-- 	<bean id="/index" class="com.javaex.controller.IndexController" /> -->
 	
 	
 	<!-- property의 ref는 이곳에 있는 같은 id의 bean객체를 말한다. 그리고 name은 그것을 받는 setter의 이름인데
 		 이 setter를 가지고 있는 것은 ListController의 setter이다.
 	 -->
-	<bean id="/notice/list" class="com.javaex.controller.notice.ListController">
-		<!-- <property name="noticeService" ref="noticeService"></property> -->
-	</bean>
-	<bean id="/notice/detail" class="com.javaex.controller.notice.DetailController" />
+
 
 	<bean
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
@@ -45,6 +42,6 @@
 	</bean>
 
 	<mvc:resources location="/static/" mapping="/**"></mvc:resources>
-	
+	<mvc:annotation-driven />
 
 </beans>
